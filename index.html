@@ -1,0 +1,117 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <nav class="h10  border-b shadow-sm ">
+        <ul class="flex justify-around w-max  font-semibold text-gray-600">
+            <li class="text-blue-500 border-b-2 border-blue-500  p-2 text-center">1d</li>
+            <li class=" hover:text-blue-500 cursor-pointer    p-2  px-5 text-center">2d</li>
+            <li class="  cursor-pointer  p-2 px-5 text-center">5d</li>
+            <li class=" cursor-pointer   p-2 px-5 text-center">30d</li>
+            <li class="  cursor-pointer  p-2 px-5 text-center">60d</li>
+            <li class="  cursor-pointer  p-2 px-5 text-center">60d</li>
+            <li class="   cursor-pointer p-2 px-5 text-center">180d</li>
+            <li class="   cursor-pointer p-2 px-5 text-center">This Year</li>
+            <li class="  cursor-pointer p-2 px-5 text-center">5 Year</li>
+        </ul>
+    </nav>
+
+    <div class="flex py-3 px-5 bg-gray-50 space-x-3">
+    <div class="  ">
+        <div class="mb-2">
+            <span class="text-blue-500 text-2xl">☆</span>
+            <input type="text" placeholder="Enter Symbol Here" class="p-2 bg-white rounded">
+        </div>
+        <div class="border p-2 w-max bg-white rounded flex space-x-1 text-gray-600">
+            <span class="flex space-x-1 border px-2 rounded mb-1 bg-gray-100">
+                <p>Uncategorized</p>
+                <p>&times</p>
+            </span>
+            <span class="flex space-x-1 border px-2 rounded mb-1 bg-gray-100">
+                <p>Stock</p>
+                <p>&times</p>
+            </span>
+            <span class="flex space-x-1 border px-2 rounded mb-1 bg-gray-100">
+                <p>ETF</p>
+                <p>&times</p>
+            </span>
+        </div>
+    </div>
+    <div class="border rounded p-2 bg-white  flex flex-wrap space-x-1 h-full text-gray-600">
+        <span class="flex space-x-1 border px-2 rounded mb-1 ">
+            <p>Uncategorized</p>
+            <p>&times</p>
+        </span>
+        <span class="flex space-x-1 border px-2 rounded mb-1">
+            <p>Technology</p>
+            <p>&times</p>
+        </span>
+        <span class="flex space-x-1 border px-2 rounded mb-1">
+            <p>Utilities</p>
+            <p>&times</p>
+        </span>
+        <span class="flex space-x-1 border px-2 rounded mb-1">
+            <p>Uncategorized</p>
+            <p>&times</p>
+        </span>
+        <span class="flex space-x-1 border px-2 rounded mb-1">
+            <p>Technology</p>
+            <p>&times</p>
+        </span>
+        <span class="flex space-x-1 border px-2 rounded mb-1">
+            <p>Utilities</p>
+            <p>&times</p>
+        </span>
+        <span class="flex space-x-1 border px-2 rounded mb-1">
+            <p>Uncategorized</p>
+            <p>&times</p>
+        </span>
+        <span class="flex space-x-1 border px-2 rounded mb-1">
+            <p>Technology</p>
+            <p>&times</p>
+        </span>
+        <span class="flex space-x-1 border px-2 rounded mb-1">
+            <p>Utilities</p>
+            <p>&times</p>
+        </span>
+        <span class="flex space-x-1 border px-2 rounded mb-1">
+            <p>Uncategorized</p>
+            <p>&times</p>
+        </span>
+        <span class="flex space-x-1 border px-2 rounded mb-1">
+            <p>Technology</p>
+            <p>&times</p>
+        </span>
+
+    </div>
+</div>
+<div>
+
+    <multi-input>
+      <input list="speakers">
+      <datalist id="speakers">
+        <option value="Banquo"></option>
+        <option value="Bishop Stokesly of London"></option>
+        <option value="Caesar’s Second Watchman"></option>
+        <option value="Celia"></option>
+        <option value="Cleopatra"></option>
+        <option value="Dogberry"></option>
+        <option value="Falstaff"></option>
+        <option value="First Servant"></option>
+        <option value="Hamlet"></option>
+        <option value="Juliet"></option>
+        <option value="Macbeth"></option>
+      </datalist>
+    </multi-input>
+    <button id="get">Get</button>
+  </div>
+</body>
+<script src="multi-input.js"></script>
+</html>

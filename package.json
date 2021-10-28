@@ -1,0 +1,14 @@
+{
+  "name": "tailwind-comp",
+  "version": "1.0.0",
+  "description": "tailwind project",
+  "main": "index.js",
+  "author": "clintzy101",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.3.7",
+    "live-server": "^1.2.1",
+    "postcss-cli": "^9.0.1",
+    "tailwindcss": "^2.2.17"
+  }
+}
