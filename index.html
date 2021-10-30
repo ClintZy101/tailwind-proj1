@@ -81,8 +81,8 @@
 
                         )</span>
 
-                        <!-- First Slider -->
-                        <div class="relative ml-3">
+                        <!-- Percentage Slider -->
+                        <div class="relative ml-3 my-3">
                             <div class="relative w-full">
                                 <div class="relative w-full">
                                     <input type="range" id="input-left" min="0" max="100" value="25"
@@ -91,7 +91,7 @@
                                         class="absolute  h-10 w-full opacity-0 pointer-events-none z-20 right-0 -top-2 cursor-pointer ">
                                 </div>
                                 <!-- slider -->
-                                <div class="relative z-10 h-5 w-full  mt-10">
+                                <div class="relative z-10 h-5 w-full ">
                     
                                     <div class="absolute z-10 left-0 right-0 top-0 bottom-0 rounded-sm bg-blue-100 w-full"></div>
                                     <!-- range -->
@@ -107,34 +107,34 @@
                         </div>
                 </div>
                 <div class="grid gap-3 col-span-3 content-center m-3 ">
-                    <!-- heading -->
-                    <!-- <span class="text-lg ">Stock Price (0-5000)</span> -->
-                    <span class="text-lg ">Stock Price(
+                
+                    <span class="text-lg ">Stock Price
+                        (
                         <strong class="text-yellow-400">0-5000</strong>
-
-                        )</span>
+                        )
+                    </span>
                     
-                        <!-- First Slider -->
-                        <div class="relative ml-3">
+                        <!-- Stock Slider -->
+                        <div class="relative mx-3 my-3">
                             <div class="relative w-full">
                                 <div class="relative w-full">
-                                    <input type="range" id="input-left" min="0" max="100" value="25"
+                                    <input type="range" id="input-left-two" min="0" max="5000" value="1000"
                                         class="absolute  h-10 w-full z-20 pointer-events-none left-0 -top-2 cursor-pointer opacity-0">
-                                    <input type="range" id="input-right" min="0" max="100" value="75"
+                                    <input type="range" id="input-right-two" min="0" max="5000" value="4000"
                                         class="absolute  h-10 w-full opacity-0 pointer-events-none z-20 right-0 -top-2 cursor-pointer ">
                                 </div>
                                 <!-- slider -->
-                                <div class="relative z-10 h-5 w-full  mt-10">
+                                <div class="relative z-10 h-5 w-full  ">
                     
                                     <div class="absolute z-10 left-0 right-0 top-0 bottom-0 rounded-sm bg-blue-100 w-full"></div>
                                     <!-- range -->
-                                    <div class="absolute z-20 left-5 right-5 top-0 bottom-0 rounded-sm bg-blue-300" id="range"></div>
+                                    <div class="absolute z-20 left-5 right-5 top-0 bottom-0 rounded-sm bg-blue-300" id="rangeTwo"></div>
                                     <!-- left thumb-->
                                     <div class="absolute z-30 w-8 h-8 bg-blue-400 rounded-full shadow-lg tansition transform -translate-x-3  -top-2 "
-                                        id="leftThumb"></div>
+                                        id="leftThumbTwo"></div>
                                     <!-- right thumb-->
                                     <div class="absolute z-30 w-8 h-8 bg-blue-400 rounded-full shadow-lg tansition transform translate-x-3  -top-2 -right-1 "
-                                        id="rightThumb"></div>
+                                        id="rightThumbTwo"></div>
                                 </div>
                             </div>
                         </div>
@@ -219,6 +219,7 @@
         }
     }
 </script>
+<script src="stock-range.js"></script>
 <script src="dual-range.js"></script>
 <script src="multi-input.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
