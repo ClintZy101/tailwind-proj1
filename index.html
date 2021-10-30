@@ -6,7 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 </head>
+<style>
+    input[type=range]::-webkit-slider-thumb {
+        pointer-events: all;
+        width: 24px;
+        height: 24px;
+        -webkit-appearance: none;
+        /* @apply w-6 h-6 appearance-none pointer-events-auto; */
+    }
+</style>
 
 <body>
     <nav class="h10  border-b shadow-sm ">
@@ -24,94 +34,218 @@
     </nav>
 
     <div class="flex py-3 px-5 bg-gray-50 space-x-3">
-    <div class="  ">
-        <div class="mb-2">
-            <span class="text-blue-500 text-2xl">☆</span>
-            <input type="text" placeholder="Enter Symbol Here" class="p-2 bg-white rounded">
+        <div class="flex items-center ">
+            <div class="mb-2 flex items-center space-x-2">
+                <span class="text-blue-500 text-2xl">☆</span>
+                <input type="text" placeholder="Enter Symbol Here" class="p-2 bg-white rounded">
+            </div>
+
         </div>
-        <div class="border p-2 w-max bg-white rounded flex space-x-1 text-gray-600">
-            <span class="flex space-x-1 border px-2 rounded mb-1 bg-gray-100">
-                <p>Uncategorized</p>
-                <p>&times</p>
-            </span>
-            <span class="flex space-x-1 border px-2 rounded mb-1 bg-gray-100">
-                <p>Stock</p>
-                <p>&times</p>
-            </span>
-            <span class="flex space-x-1 border px-2 rounded mb-1 bg-gray-100">
-                <p>ETF</p>
-                <p>&times</p>
-            </span>
-        </div>
+
+        <multi-input class="border rounded-md ">
+            <input list="speakers" class="p-2 rounded-md">
+            <datalist id="speakers" class="text-red-500">
+                <option value="Banquo"></option>
+                <option value="Bishop Stokesly of London"></option>
+                <option value="Caesar’s Second Watchman"></option>
+                <option value="Celia"></option>
+                <option value="Cleopatra"></option>
+                <option value="Dogberry"></option>
+                <option value="Falstaff"></option>
+                <option value="First Servant"></option>
+                <option value="Hamlet"></option>
+                <option value="Juliet"></option>
+                <option value="Macbeth"></option>
+            </datalist>
+        </multi-input>
     </div>
-    <div class="border rounded p-2 bg-white  flex flex-wrap space-x-1 h-full text-gray-600">
-        <span class="flex space-x-1 border px-2 rounded mb-1 ">
-            <p>Uncategorized</p>
-            <p>&times</p>
-        </span>
-        <span class="flex space-x-1 border px-2 rounded mb-1">
-            <p>Technology</p>
-            <p>&times</p>
-        </span>
-        <span class="flex space-x-1 border px-2 rounded mb-1">
-            <p>Utilities</p>
-            <p>&times</p>
-        </span>
-        <span class="flex space-x-1 border px-2 rounded mb-1">
-            <p>Uncategorized</p>
-            <p>&times</p>
-        </span>
-        <span class="flex space-x-1 border px-2 rounded mb-1">
-            <p>Technology</p>
-            <p>&times</p>
-        </span>
-        <span class="flex space-x-1 border px-2 rounded mb-1">
-            <p>Utilities</p>
-            <p>&times</p>
-        </span>
-        <span class="flex space-x-1 border px-2 rounded mb-1">
-            <p>Uncategorized</p>
-            <p>&times</p>
-        </span>
-        <span class="flex space-x-1 border px-2 rounded mb-1">
-            <p>Technology</p>
-            <p>&times</p>
-        </span>
-        <span class="flex space-x-1 border px-2 rounded mb-1">
-            <p>Utilities</p>
-            <p>&times</p>
-        </span>
-        <span class="flex space-x-1 border px-2 rounded mb-1">
-            <p>Uncategorized</p>
-            <p>&times</p>
-        </span>
-        <span class="flex space-x-1 border px-2 rounded mb-1">
-            <p>Technology</p>
-            <p>&times</p>
-        </span>
+
+    <div class="bg-gray-50 p-5">
+        <!-- table One -->
+        <div class="border bg-white mt-3 ">
+            <div class="justify-between flex p-3 border-b text-lg">
+                <span>Rise</span>
+                <span class="text-yellow-400">2021/10/30</span>
+            </div>
+
+            <!-- Input Ranges -->
+            <div class="grid grid-cols-4 space-x-7 ">
+                <div class="grid gap-3 col-span-1 content-center m-3 ">
+                    <!-- heading -->
+                    <span class="text-lg ">%(
+                        <strong class="text-yellow-400">0-100</strong>
+
+                        )</span>
+
+                    <div x-data="range()" x-init="mintrigger(); maxtrigger()" class="relative max-w-xl w-full">
+                        <div>
+                            <input type="range" step="1" x-bind:min="min" x-bind:max="max" x-on:input="mintrigger"
+                                x-model="minprice"
+                                class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer">
+
+                            <input type="range" step="1" x-bind:min="min" x-bind:max="max" x-on:input="maxtrigger"
+                                x-model="maxprice"
+                                class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer">
+
+                            <div class="relative z-10 h-2">
+
+                                <div class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-gray-200"></div>
+
+                                <div class="absolute z-20 top-0 bottom-0 rounded-md bg-blue-300"
+                                    x-bind:style="'right:'+maxthumb+'%; left:'+minthumb+'%'"></div>
+
+                                <div class="absolute z-30 w-6 h-6 top-0 left-0 bg-blue-300 rounded-full -mt-2 -ml-1"
+                                    x-bind:style="'left: '+minthumb+'%'"></div>
+
+                                <div class="absolute z-30 w-6 h-6 top-0 right-0 bg-blue-300 rounded-full -mt-2 -mr-3"
+                                    x-bind:style="'right: '+maxthumb+'%'"></div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="flex justify-between items-center py-5">
+                            <div>
+                                <input type="text" maxlength="5" x-on:input="mintrigger" x-model="minprice"
+                                    class="px-3 py-2 border border-gray-200 rounded w-24 text-center">
+                            </div>
+                            <div>
+                                <input type="text" maxlength="5" x-on:input="maxtrigger" x-model="maxprice"
+                                    class="px-3 py-2 border border-gray-200 rounded w-24 text-center">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="grid gap-3 col-span-3 content-center m-3 ">
+                    <!-- heading -->
+                    <!-- <span class="text-lg ">Stock Price (0-5000)</span> -->
+                    <span class="text-lg ">Stock Price(
+                        <strong class="text-yellow-400">0-5000</strong>
+
+                        )</span>
+
+                    <div x-data="stockRange()" x-init="mintrigger(); maxtrigger()" class="relative max-w-xl w-full">
+                        <div>
+                            <input type="range" step="100" x-bind:min="min" x-bind:max="max" x-on:input="mintrigger"
+                                x-model="minprice"
+                                class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer ">
+
+                            <input type="range" step="100" x-bind:min="min" x-bind:max="max" x-on:input="maxtrigger"
+                                x-model="maxprice"
+                                class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer">
+
+                            <div class="relative z-10 h-2">
+
+                                <div class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-gray-200"></div>
+
+                                <div class="absolute z-20 top-0 bottom-0 rounded-md bg-blue-300"
+                                    x-bind:style="'right:'+maxthumb+'%; left:'+minthumb+'%'"></div>
+
+                                <div class="absolute z-30 w-6 h-6 top-0 left-0 bg-blue-300 rounded-full -mt-2 -ml-1"
+                                    x-bind:style="'left: '+minthumb+'%'"></div>
+
+                                <div class="absolute z-30 w-6 h-6 top-0 right-0 bg-blue-300 rounded-full -mt-2 -mr-3"
+                                    x-bind:style="'right: '+maxthumb+'%'"></div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="flex justify-between items-center py-5">
+                            <div>
+                                <input type="text" maxlength="5" x-on:input="mintrigger" x-model="minprice"
+                                    class="px-3 py-2 border border-gray-200 rounded w-24 text-center">
+                            </div>
+                            <div>
+                                <input type="text" maxlength="5" x-on:input="maxtrigger" x-model="maxprice"
+                                    class="px-3 py-2 border border-gray-200 rounded w-24 text-center">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="flex space-x-7 text-gray-600 ml-8 items-center mb-2">
+                <span class="cursor-pointer">back</span>
+                <span class="cursor-pointer">next</span>
+                <select class="border rounded-sm cursor-pointer h-7">
+                    <option value="">100</option>
+                </select>
+            </div>
+            <div class="border m-2 p-2">
+            <table class="  w-full text-left">
+                <thead>
+                <tr class="">
+                    <th>Symbol</th>
+                    <th>Open</th>
+                    <th>Close</th>
+                    <th>%</th>
+                    <th>Type</th>
+                    <th>Sector</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span class="text-blue-500 text-2xl">☆</span>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        </div>
 
     </div>
-</div>
-<div>
-
-    <multi-input>
-      <input list="speakers">
-      <datalist id="speakers">
-        <option value="Banquo"></option>
-        <option value="Bishop Stokesly of London"></option>
-        <option value="Caesar’s Second Watchman"></option>
-        <option value="Celia"></option>
-        <option value="Cleopatra"></option>
-        <option value="Dogberry"></option>
-        <option value="Falstaff"></option>
-        <option value="First Servant"></option>
-        <option value="Hamlet"></option>
-        <option value="Juliet"></option>
-        <option value="Macbeth"></option>
-      </datalist>
-    </multi-input>
-    <button id="get">Get</button>
-  </div>
+    <div>
+    </div>
 </body>
+<script>
+    function range() {
+        return {
+            minprice: 20,
+            maxprice: 70,
+            min: 0,
+            max: 100,
+            minthumb: 0,
+            maxthumb: 0,
+
+            mintrigger() {
+                this.minprice = Math.min(this.minprice, this.maxprice - 1);
+                this.minthumb = ((this.minprice - this.min) / (this.max - this.min)) * 100;
+
+            },
+
+            maxtrigger() {
+                this.maxprice = Math.max(this.maxprice, this.minprice + 1);
+                this.maxthumb = 100 - (((this.maxprice - this.min) / (this.max - this.min)) * 100);
+            },
+        }
+    }
+    function stockRange() {
+        return {
+            minprice: 100,
+            maxprice: 4000,
+            min: 0,
+            max: 5000,
+            minthumb: 0,
+            maxthumb: 0,
+
+            mintrigger() {
+                this.minprice = Math.min(this.minprice, this.maxprice - 1);
+                this.minthumb = ((this.minprice - this.min) / (this.max - this.min)) * 100;
+
+            },
+
+            maxtrigger() {
+                this.maxprice = Math.max(this.maxprice, this.minprice + 1);
+                this.maxthumb = 100 - (((this.maxprice - this.min) / (this.max - this.min)) * 100);
+            },
+        }
+    }
+</script>
+<script src="dual-range.js"></script>
 <script src="multi-input.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
 </html>
