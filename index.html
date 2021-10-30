@@ -6,15 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> -->
 </head>
 <style>
+  
     input[type=range]::-webkit-slider-thumb {
         pointer-events: all;
-        width: 24px;
-        height: 24px;
+        width: 30px;
+        height: 30px;
+        border-radius: 0;
+        border: 0 none;
+        /* cursor: pointer; */
+        background-color: red;
         -webkit-appearance: none;
-        /* @apply w-6 h-6 appearance-none pointer-events-auto; */
     }
 </style>
 
@@ -70,52 +74,37 @@
 
             <!-- Input Ranges -->
             <div class="grid grid-cols-4 space-x-7 ">
-                <div class="grid gap-3 col-span-1 content-center m-3 ">
+                <div class="grid gap-3 col-span-1 content-center m-3">
                     <!-- heading -->
                     <span class="text-lg ">%(
                         <strong class="text-yellow-400">0-100</strong>
 
                         )</span>
 
-                    <div x-data="range()" x-init="mintrigger(); maxtrigger()" class="relative max-w-xl w-full">
-                        <div>
-                            <input type="range" step="1" x-bind:min="min" x-bind:max="max" x-on:input="mintrigger"
-                                x-model="minprice"
-                                class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer">
-
-                            <input type="range" step="1" x-bind:min="min" x-bind:max="max" x-on:input="maxtrigger"
-                                x-model="maxprice"
-                                class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer">
-
-                            <div class="relative z-10 h-2">
-
-                                <div class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-gray-200"></div>
-
-                                <div class="absolute z-20 top-0 bottom-0 rounded-md bg-blue-300"
-                                    x-bind:style="'right:'+maxthumb+'%; left:'+minthumb+'%'"></div>
-
-                                <div class="absolute z-30 w-6 h-6 top-0 left-0 bg-blue-300 rounded-full -mt-2 -ml-1"
-                                    x-bind:style="'left: '+minthumb+'%'"></div>
-
-                                <div class="absolute z-30 w-6 h-6 top-0 right-0 bg-blue-300 rounded-full -mt-2 -mr-3"
-                                    x-bind:style="'right: '+maxthumb+'%'"></div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="flex justify-between items-center py-5">
-                            <div>
-                                <input type="text" maxlength="5" x-on:input="mintrigger" x-model="minprice"
-                                    class="px-3 py-2 border border-gray-200 rounded w-24 text-center">
-                            </div>
-                            <div>
-                                <input type="text" maxlength="5" x-on:input="maxtrigger" x-model="maxprice"
-                                    class="px-3 py-2 border border-gray-200 rounded w-24 text-center">
+                        <!-- First Slider -->
+                        <div class="relative ml-3">
+                            <div class="relative w-full">
+                                <div class="relative w-full">
+                                    <input type="range" id="input-left" min="0" max="100" value="25"
+                                        class="absolute  h-10 w-full z-20 pointer-events-none left-0 -top-2 cursor-pointer opacity-0">
+                                    <input type="range" id="input-right" min="0" max="100" value="75"
+                                        class="absolute  h-10 w-full opacity-0 pointer-events-none z-20 right-0 -top-2 cursor-pointer ">
+                                </div>
+                                <!-- slider -->
+                                <div class="relative z-10 h-5 w-full  mt-10">
+                    
+                                    <div class="absolute z-10 left-0 right-0 top-0 bottom-0 rounded-sm bg-blue-100 w-full"></div>
+                                    <!-- range -->
+                                    <div class="absolute z-20 left-5 right-5 top-0 bottom-0 rounded-sm bg-blue-300" id="range"></div>
+                                    <!-- left thumb-->
+                                    <div class="absolute z-30 w-8 h-8 bg-blue-400 rounded-full shadow-lg tansition transform -translate-x-3  -top-2 "
+                                        id="leftThumb"></div>
+                                    <!-- right thumb-->
+                                    <div class="absolute z-30 w-8 h-8 bg-blue-400 rounded-full shadow-lg tansition transform translate-x-3  -top-2 -right-1 "
+                                        id="rightThumb"></div>
+                                </div>
                             </div>
                         </div>
-
-                    </div>
                 </div>
                 <div class="grid gap-3 col-span-3 content-center m-3 ">
                     <!-- heading -->
@@ -124,46 +113,32 @@
                         <strong class="text-yellow-400">0-5000</strong>
 
                         )</span>
-
-                    <div x-data="stockRange()" x-init="mintrigger(); maxtrigger()" class="relative max-w-xl w-full">
-                        <div>
-                            <input type="range" step="100" x-bind:min="min" x-bind:max="max" x-on:input="mintrigger"
-                                x-model="minprice"
-                                class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer ">
-
-                            <input type="range" step="100" x-bind:min="min" x-bind:max="max" x-on:input="maxtrigger"
-                                x-model="maxprice"
-                                class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer">
-
-                            <div class="relative z-10 h-2">
-
-                                <div class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-gray-200"></div>
-
-                                <div class="absolute z-20 top-0 bottom-0 rounded-md bg-blue-300"
-                                    x-bind:style="'right:'+maxthumb+'%; left:'+minthumb+'%'"></div>
-
-                                <div class="absolute z-30 w-6 h-6 top-0 left-0 bg-blue-300 rounded-full -mt-2 -ml-1"
-                                    x-bind:style="'left: '+minthumb+'%'"></div>
-
-                                <div class="absolute z-30 w-6 h-6 top-0 right-0 bg-blue-300 rounded-full -mt-2 -mr-3"
-                                    x-bind:style="'right: '+maxthumb+'%'"></div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="flex justify-between items-center py-5">
-                            <div>
-                                <input type="text" maxlength="5" x-on:input="mintrigger" x-model="minprice"
-                                    class="px-3 py-2 border border-gray-200 rounded w-24 text-center">
-                            </div>
-                            <div>
-                                <input type="text" maxlength="5" x-on:input="maxtrigger" x-model="maxprice"
-                                    class="px-3 py-2 border border-gray-200 rounded w-24 text-center">
+                    
+                        <!-- First Slider -->
+                        <div class="relative ml-3">
+                            <div class="relative w-full">
+                                <div class="relative w-full">
+                                    <input type="range" id="input-left" min="0" max="100" value="25"
+                                        class="absolute  h-10 w-full z-20 pointer-events-none left-0 -top-2 cursor-pointer opacity-0">
+                                    <input type="range" id="input-right" min="0" max="100" value="75"
+                                        class="absolute  h-10 w-full opacity-0 pointer-events-none z-20 right-0 -top-2 cursor-pointer ">
+                                </div>
+                                <!-- slider -->
+                                <div class="relative z-10 h-5 w-full  mt-10">
+                    
+                                    <div class="absolute z-10 left-0 right-0 top-0 bottom-0 rounded-sm bg-blue-100 w-full"></div>
+                                    <!-- range -->
+                                    <div class="absolute z-20 left-5 right-5 top-0 bottom-0 rounded-sm bg-blue-300" id="range"></div>
+                                    <!-- left thumb-->
+                                    <div class="absolute z-30 w-8 h-8 bg-blue-400 rounded-full shadow-lg tansition transform -translate-x-3  -top-2 "
+                                        id="leftThumb"></div>
+                                    <!-- right thumb-->
+                                    <div class="absolute z-30 w-8 h-8 bg-blue-400 rounded-full shadow-lg tansition transform translate-x-3  -top-2 -right-1 "
+                                        id="rightThumb"></div>
+                                </div>
                             </div>
                         </div>
 
-                    </div>
                 </div>
             </div>
             <div class="flex space-x-7 text-gray-600 ml-8 items-center mb-2">
