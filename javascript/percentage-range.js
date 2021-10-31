@@ -1,9 +1,9 @@
 var inputLeft = document.getElementById("input-left");
 var inputRight = document.getElementById("input-right");
+var thumbLeft = document.getElementById('leftThumb');
+var thumbRight = document.getElementById('rightThumb');
+var range = document.getElementById('range');
 
-var thumbLeft = document.getElementById('leftThumb')
-var thumbRight = document.getElementById('rightThumb')
-var range = document.getElementById('range')
 
 function setLeftValue() {
 	var _this = inputLeft,
@@ -31,6 +31,7 @@ function setRightValue() {
 	thumbRight.style.right = (100 - percent) + "%";
 	range.style.right = (100 - percent) + "%";
 }
+
 setRightValue();
 
 inputLeft.addEventListener("input", setLeftValue);

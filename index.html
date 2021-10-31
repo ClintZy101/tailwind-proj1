@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
-    <!-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> -->
 </head>
 <style>
     input[type=range]::-webkit-slider-thumb {
@@ -268,9 +267,9 @@
                     <div class="relative ml-3 my-3">
                         <div class="relative w-full">
                             <div class="relative w-full">
-                                <input type="range" id="input-left" min="0" max="100" value="25"
+                                <input type="range" id="input-left-three" min="0" max="100" value="25"
                                     class="absolute  h-10 w-full z-20 pointer-events-none left-0 -top-2 cursor-pointer opacity-0">
-                                <input type="range" id="input-right" min="0" max="100" value="75"
+                                <input type="range" id="input-right-three" min="0" max="100" value="75"
                                     class="absolute  h-10 w-full opacity-0 pointer-events-none z-20 right-0 -top-2 cursor-pointer ">
                             </div>
                             <!-- slider -->
@@ -280,13 +279,13 @@
                                 </div>
                                 <!-- range -->
                                 <div class="absolute z-20 left-5 right-5 top-0 bottom-0 rounded-sm bg-blue-300"
-                                    id="range"></div>
+                                    id="rangeThree"></div>
                                 <!-- left thumb-->
                                 <div class="absolute z-30 w-8 h-8 bg-blue-400 rounded-full shadow-lg tansition transform -translate-x-3  -top-2 "
-                                    id="leftThumb"></div>
+                                    id="leftThumbThree"></div>
                                 <!-- right thumb-->
                                 <div class="absolute z-30 w-8 h-8 bg-blue-400 rounded-full shadow-lg tansition transform translate-x-3  -top-2 -right-1 "
-                                    id="rightThumb"></div>
+                                    id="rightThumbThree"></div>
                             </div>
                         </div>
                     </div>
@@ -303,9 +302,9 @@
                     <div class="relative mx-3 my-3">
                         <div class="relative w-full">
                             <div class="relative w-full">
-                                <input type="range" id="input-left-two" min="0" max="5000" value="1000"
+                                <input type="range" id="input-left-four" min="0" max="5000" value="1000"
                                     class="absolute  h-10 w-full z-20 pointer-events-none left-0 -top-2 cursor-pointer opacity-0">
-                                <input type="range" id="input-right-two" min="0" max="5000" value="4000"
+                                <input type="range" id="input-right-four" min="0" max="5000" value="4000"
                                     class="absolute  h-10 w-full opacity-0 pointer-events-none z-20 right-0 -top-2 cursor-pointer ">
                             </div>
                             <!-- slider -->
@@ -315,13 +314,13 @@
                                 </div>
                                 <!-- range -->
                                 <div class="absolute z-20 left-5 right-5 top-0 bottom-0 rounded-sm bg-blue-300"
-                                    id="rangeTwo"></div>
+                                    id="rangeFour"></div>
                                 <!-- left thumb-->
                                 <div class="absolute z-30 w-8 h-8 bg-blue-400 rounded-full shadow-lg tansition transform -translate-x-3  -top-2 "
-                                    id="leftThumbTwo"></div>
+                                    id="leftThumbFour"></div>
                                 <!-- right thumb-->
                                 <div class="absolute z-30 w-8 h-8 bg-blue-400 rounded-full shadow-lg tansition transform translate-x-3  -top-2 -right-1 "
-                                    id="rightThumbTwo"></div>
+                                    id="rightThumbFour"></div>
                             </div>
                         </div>
                     </div>
@@ -476,9 +475,11 @@
         }
     }
 </script>
-<script src="stock-range.js"></script>
-<script src="dual-range.js"></script>
-<script src="multi-input.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+<script src="./javascript/multi-input.js"></script>
+<script src="./javascript/percentage-range.js"></script>
+<script src="./javascript/percentage-range2.js"></script>
+<script src="./javascript/stock-range.js"></script>
+<script src="./javascript/stock-range2.js"></script>
+
 
 </html>
