@@ -11,7 +11,7 @@ function setLeftValue() {
 		max = parseInt(_this.max);
 
 	_this.value = Math.min(parseInt(_this.value), parseInt(inputRight3.value) - 1);
-
+	console.log(_this.value)
 	var percent = ((_this.value - min) / (max - min)) * 100;
 
 	thumbLeft3.style.left = percent + "%";
@@ -25,7 +25,7 @@ function setRightValue() {
 		max = parseInt(_this.max);
 
 	_this.value = Math.max(parseInt(_this.value), parseInt(inputLeft3.value) + 1);
-
+	console.log(_this.value)
 	var percent = ((_this.value - min) / (max - min)) * 100;
 
 	thumbRight3.style.right = (100 - percent) + "%";
